@@ -57,6 +57,10 @@ function processTweet(article) {
 
   if (isPortuguese(text)) {
     article.style.display = "none";
+    // DEBUG
+    // article.style.background = "rgba(255, 0, 0, 0.15)";
+    // article.style.outline = "4px solid red";
+    // article.style.opacity = "0.4";
   }
 }
 
