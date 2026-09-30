@@ -85,3 +85,12 @@ merge, then run the **Release** workflow from the Actions tab. It tags
 - Very short posts are ignored to reduce false positives
 - Filtering is heuristic-based and intentionally simple
 - Thresholds and word lists can be adjusted in `src/lib/core.js`
+
+---
+
+## Project
+
+- [Privacy policy](PRIVACY.md) — no data is collected
+- [Security policy](SECURITY.md)
+- [Contributing](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Changelog](CHANGELOG.md)

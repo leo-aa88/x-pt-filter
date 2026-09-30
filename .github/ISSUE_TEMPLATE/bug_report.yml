@@ -1,0 +1,59 @@
+name: Bug report
+description: Something isn't working (e.g. a Portuguese post still shows, or another post was hidden)
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report! For "post not hidden" or "post wrongly hidden"
+        bugs, the text of the post is the single most useful thing you can
+        include — it's what lets us fix the heuristic.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect instead?
+      placeholder: A Portuguese post still appears in my timeline …
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Edge
+        - Firefox
+        - Safari
+        - Brave
+        - Vivaldi
+        - Opera
+        - Other (note below)
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Browser version & extension version
+      placeholder: "Chrome 140.0 · extension 1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: post-text
+    attributes:
+      label: Post text (if applicable)
+      description: Paste the text of the post that was missed or wrongly hidden. Remove usernames and anything personal.
+      render: text
+  - type: textarea
+    id: html
+    attributes:
+      label: Post HTML (if the filter stopped working entirely)
+      description: Right-click a post → Inspect → right-click the enclosing <article> → Copy → Copy outerHTML. Remove anything personal.
+      render: html
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open https://x.com/home
+        2. …
