@@ -24,6 +24,7 @@
   "scripts": {
     "build": "node scripts/build.mjs all --zip",
     "build:unpacked": "node scripts/build.mjs all",
+    "build:safari": "bash scripts/build-safari.sh",
     "test": "node --test",
     "lint": "eslint . && prettier --check .",
     "lint:ext": "npm run build:unpacked && web-ext lint --source-dir dist/firefox",

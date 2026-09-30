@@ -2,7 +2,7 @@
 /*
  * Builds per-browser packages from a single `src/` tree.
  *
- *   node scripts/build.mjs [chrome|firefox|all] [--zip]
+ *   node scripts/build.mjs [chrome|edge|firefox|all] [--zip]
  *
  * Output goes to dist/<target>/ (an unpacked, loadable extension) and, with
  * --zip, dist/<target>-v<version>.zip ready for each browser's store.
@@ -10,6 +10,9 @@
  * The only cross-browser manifest difference we need is Firefox's required
  * `browser_specific_settings.gecko` block; Chromium ignores it but we keep the
  * builds separate so each store gets exactly what it expects.
+ *
+ * Safari: run `npm run build:safari` (macOS + Xcode) — it converts dist/chrome
+ * with Apple's safari-web-extension-converter. See docs/SAFARI.md.
  *
  * Zero runtime dependencies: Node's stdlib only (ZIP writer is bundled).
  */
@@ -34,7 +37,7 @@ const GECKO_ID = "x-pt-filter@leo-aa88.github.io";
 // `data_collection_permissions`, which AMO now requires.
 const GECKO_MIN_VERSION = "140.0";
 
-const TARGETS = ["chrome", "firefox"];
+const TARGETS = ["chrome", "edge", "firefox"];
 
 function readManifest() {
   return JSON.parse(readFileSync(join(srcDir, "manifest.json"), "utf8"));
