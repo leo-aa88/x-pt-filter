@@ -55,7 +55,7 @@ function buildTarget(target) {
       gecko: {
         id: GECKO_ID,
         strict_min_version: GECKO_MIN_VERSION,
-        // We collect no data. AMO requires this be explicit.
+        // We collect no data (see PRIVACY.md). AMO requires this be explicit.
         data_collection_permissions: { required: ["none"] },
       },
       // Firefox for Android gained data_collection_permissions in 142.
