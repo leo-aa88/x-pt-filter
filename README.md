@@ -30,15 +30,39 @@ This avoids reliance on unreliable language metadata and keeps the extension lig
 1. Open `chrome://extensions`
 2. Enable **Developer mode**
 3. Click **Load unpacked**
-4. Select the extension folder
+4. Select the `src/` folder
 5. Open `https://x.com/home` and scroll
+
+Packaged zips for Chrome and Firefox are attached to each
+[release](https://github.com/leo-aa88/x-pt-filter/releases).
 
 ---
 
 ## Files
 
-- `manifest.json` — Extension manifest (Manifest V3)
-- `content.js` — Timeline observer and language filter
+- `src/manifest.json` — Extension manifest (Manifest V3)
+- `src/lib/core.js` — Language heuristic and per-tweet filtering
+- `src/content/content.js` — Timeline observer
+- `scripts/build.mjs` — Builds `dist/<browser>/` and the store zips
+- `test/` — Unit and DOM tests
+
+---
+
+## Development
+
+Requires Node 22+.
+
+```bash
+npm install
+npm run check   # lint + format check + tests
+npm run build   # dist/chrome, dist/firefox and their zips
+```
+
+CI runs the same checks on every push and pull request.
+
+To release: bump `version` in both `package.json` and `src/manifest.json`,
+merge, then run the **Release** workflow from the Actions tab. It tags
+`v<version>` and publishes a GitHub Release with the zips attached.
 
 ---
 
@@ -46,4 +70,4 @@ This avoids reliance on unreliable language metadata and keeps the extension lig
 
 - Very short posts are ignored to reduce false positives
 - Filtering is heuristic-based and intentionally simple
-- Thresholds and word lists can be adjusted in `content.js`
+- Thresholds and word lists can be adjusted in `src/lib/core.js`
